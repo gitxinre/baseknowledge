@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
+
+
+    <!--
+        Content Model : (((description*, display-NAME*, icon*)) | 
+         distributable | context-param | filter | filter-mapping | listener 
+         | servlet | servlet-mapping | SESSION-config | mime-mapping | 
+         welcome-FILE-LIST | error-page | jsp-config | SECURITY-
+         constraint | login-config | SECURITY-role | ((env-entry*, ejb-ref*, 
+         ejb-LOCAL-ref*, ((service-ref*)), resource-ref*, resource-env-
+         ref*, message-destination-ref*, persistence-context-ref*, 
+         persistence-unit-ref*, post-construct*, pre-destroy*)) | 
+         message-destination | locale-encoding-mapping-LIST)*
+    -->
+
+    <display-name>baseknowledge</display-name>
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+
+    <servlet>
+        <servlet-name>CXFServlet</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CXFServlet</servlet-name>
+        <url-pattern>/webService/*</url-pattern>
+    </servlet-mapping>
+
+    <!--<context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-cxf.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>cxf</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <init-param>
+            <param-name>config-location</param-name>
+            <param-value>classpath:spring-cxf.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>cxf</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>-->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

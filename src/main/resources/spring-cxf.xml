@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+    <!--
+        Content Model : (((description*, display-NAME*, icon*)) | 
+         distributable | context-param | filter | filter-mapping | listener 
+         | servlet | servlet-mapping | SESSION-config | mime-mapping | 
+         welcome-FILE-LIST | error-page | jsp-config | SECURITY-
+         constraint | login-config | SECURITY-role | ((env-entry*, ejb-ref*, 
+         ejb-LOCAL-ref*, ((service-ref*)), resource-ref*, resource-env-
+         ref*, message-destination-ref*, persistence-context-ref*, 
+         persistence-unit-ref*, post-construct*, pre-destroy*)) | 
+         message-destination | locale-encoding-mapping-LIST)*
+    -->
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+    <!--<jaxws:endpoint id="PersonServiceId" address="/personServiceAddress" implementor="ws.cxf.server.impl.PersonServiceImpl"/>-->
+
+    <jaxws:server id="personServiceImplId" address="/personServiceAddress" serviceClass="ws.cxf.server.PersonService">
+
+        <jaxws:serviceBean>
+            <bean class="ws.cxf.server.impl.PersonServiceImpl"/>
+        </jaxws:serviceBean>
+
+    </jaxws:server>
+
+
+</beans>
