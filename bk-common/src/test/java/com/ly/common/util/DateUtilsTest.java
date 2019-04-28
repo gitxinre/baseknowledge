@@ -22,7 +22,7 @@ public class DateUtilsTest {
             e.printStackTrace();
         }
         Date d2 = new Date(System.currentTimeMillis());
-        String durationFormat = DateUtils.getDurationFormat(d1, d2);
+        String durationFormat = DateUtils.getDurationFormat(d1, d2, true);
         System.out.println("durationFormat = " + durationFormat);
     }
 
@@ -30,12 +30,12 @@ public class DateUtilsTest {
     // argus type is String
     public void testGetDurationFormat002() {
         String d1 = "2019-04-05 14:55:26";
-        String d2 = "2019-05-08 15:56:26";
+        String d2 = "2019-04-05 14:55:35";
         String format = "yyyy-MM-dd HH:mm:ss";
 //        String d1 = "12-4月 -19 11.55.58.787000 上午";
 //        String d2 = "12-4月 -19 11.55.58.788000 上午";
 //        String format = "月 -19 11.55.58.787000 上午";
-        String durationFormat = DateUtils.getDurationFormat(d1, d1, format);
+        String durationFormat = DateUtils.getDurationFormat(d1, d2, format,false);
         System.out.println("durationFormat = " + durationFormat);
     }
 

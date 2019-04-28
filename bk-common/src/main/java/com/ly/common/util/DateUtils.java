@@ -121,17 +121,7 @@ public class DateUtils {
         if (count >= 1 && !accurate) {
             return timeInterval.toString();
         }
-        /*if (count == 0) {
-            if (ms != 0) {
-                timeInterval.append(ms).append("毫秒");
-                return timeInterval.toString();
-            } else {
-                return "0毫秒";
-            }
-        } else {
-            return timeInterval.toString();
-        }*/
-        if (count == 0 && ms != 0) {
+        if (ms != 0) {
             timeInterval.append(ms).append("毫秒");
         } else if (count == 0) {
             return "0毫秒";
